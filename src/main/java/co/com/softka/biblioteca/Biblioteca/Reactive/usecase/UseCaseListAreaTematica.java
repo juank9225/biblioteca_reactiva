@@ -3,6 +3,7 @@ package co.com.softka.biblioteca.Biblioteca.Reactive.usecase;
 import co.com.softka.biblioteca.Biblioteca.Reactive.dto.AreaTematicaDTO;
 import co.com.softka.biblioteca.Biblioteca.Reactive.mapper.AreaTematicaMapper;
 import co.com.softka.biblioteca.Biblioteca.Reactive.repositorio.RepositoryAreaTematica;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 
@@ -13,6 +14,7 @@ public class UseCaseListAreaTematica implements Supplier<Flux<AreaTematicaDTO>> 
     private final RepositoryAreaTematica repositoryAreaTematica;
     private final AreaTematicaMapper areaTematicaMapper;
 
+    @Autowired
     public UseCaseListAreaTematica(RepositoryAreaTematica repositoryAreaTematica, AreaTematicaMapper areaTematicaMapper) {
         this.repositoryAreaTematica = repositoryAreaTematica;
         this.areaTematicaMapper = areaTematicaMapper;

@@ -3,27 +3,25 @@ package co.com.softka.biblioteca.Biblioteca.Reactive.usecase;
 import co.com.softka.biblioteca.Biblioteca.Reactive.dto.AreaTematicaDTO;
 import co.com.softka.biblioteca.Biblioteca.Reactive.mapper.AreaTematicaMapper;
 import co.com.softka.biblioteca.Biblioteca.Reactive.repositorio.RepositoryAreaTematica;
-import co.com.softka.biblioteca.Biblioteca.Reactive.usecase.interfaceUseCase.GuardarAreaTematica;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.validation.annotation.Validated;
 import reactor.core.publisher.Mono;
 
+import java.util.function.Function;
+
 @Service
-@Validated
-public class UseCaseCrearAreaTematica implements GuardarAreaTematica {
+public class UseCaseListIdAreaTematica implements Function<String, Mono<AreaTematicaDTO>> {
     private final RepositoryAreaTematica repositoryAreaTematica;
     private final AreaTematicaMapper areaTematicaMapper;
 
     @Autowired
-    public UseCaseCrearAreaTematica(RepositoryAreaTematica repositoryAreaTematica, AreaTematicaMapper areaTematicaMapper) {
+    public UseCaseListIdAreaTematica(RepositoryAreaTematica repositoryAreaTematica, AreaTematicaMapper areaTematicaMapper) {
         this.repositoryAreaTematica = repositoryAreaTematica;
         this.areaTematicaMapper = areaTematicaMapper;
     }
 
     @Override
-    public Mono<AreaTematicaDTO> apply(AreaTematicaDTO areaTematicaDTO) {
-        var area = repositoryAreaTematica.save(areaTematicaMapper.mapperToAreaTematica(null).apply(areaTematicaDTO)).map(areaTematicaMapper.mapAreaTematicaToDTO());
-        return area;
+    public Mono<AreaTematicaDTO> apply(String id) {
+        return repositoryAreaTematica.findById(id).map(areaTematicaMapper.mapAreaTematicaToDTO());
     }
 }

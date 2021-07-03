@@ -4,6 +4,6 @@ import co.com.softka.biblioteca.Biblioteca.Reactive.dto.RecursoDTO;
 import reactor.core.publisher.Mono;
 
 @FunctionalInterface
-public interface ConsultarfindByIdRecurso {
-   public Mono<RecursoDTO> findById(String id);
+public interface ActualizarRecurso {
+    public Mono<RecursoDTO> apply(RecursoDTO recursoDTO);
 }
