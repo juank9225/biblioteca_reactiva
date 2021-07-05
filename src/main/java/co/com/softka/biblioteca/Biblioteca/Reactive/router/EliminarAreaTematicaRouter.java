@@ -1,8 +1,6 @@
 package co.com.softka.biblioteca.Biblioteca.Reactive.router;
 
 import co.com.softka.biblioteca.Biblioteca.Reactive.dto.AreaTematicaDTO;
-import co.com.softka.biblioteca.Biblioteca.Reactive.dto.RecursoDTO;
-import co.com.softka.biblioteca.Biblioteca.Reactive.modelo.AreaTematica;
 import co.com.softka.biblioteca.Biblioteca.Reactive.usecase.UseCaseEliminarAreaTematica;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
