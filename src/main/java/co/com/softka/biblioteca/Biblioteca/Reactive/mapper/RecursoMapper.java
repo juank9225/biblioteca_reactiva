@@ -32,4 +32,5 @@ public class RecursoMapper {
                                      ,entity.getAreaTematicaId());
     }
 
+
 }
